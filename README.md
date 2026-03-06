@@ -324,19 +324,23 @@ sudo apt install beep
 # Melody only (cleanest for beep)
 ./nwn-aol-theme_melody.sh
 
-# Just the bass line
+# Harmony line
+./nwn-aol-theme_harmony.sh
+
+# Bass line
 ./nwn-aol-theme_bass.sh
 ```
 
 ### Output Variants
 
-For each song, three scripts are generated:
+For each song, four scripts are generated:
 
 | Suffix | Content |
 |--------|---------|
-| `_melody.sh` | Voice 2 only — the sustaining melody line. Cleanest output for `beep`. |
 | `_full.sh` | All voices with speaker priority simulation. Includes the 34ms bass stabs and 68ms harmony hits. Faithful to the original but may sound rough through `beep` since the command can't switch as fast as the PIT hardware. |
-| `_bass.sh` | Voices 0+1 — rhythmic bass and harmony accompaniment. |
+| `_melody.sh` | Voice 2 only — the sustaining melody line. Cleanest output for `beep`. |
+| `_harmony.sh` | Voice 1 only — the harmony accompaniment (68ms hits). |
+| `_bass.sh` | Voice 0 only — the rhythmic bass line (34ms stabs). |
 
 ## Files
 
@@ -348,10 +352,12 @@ produced from them.
 unexepack.py           EXEPACK decompression tool
 extract_theme.py       Music engine simulator and beep script generator
 
-nwn-aol-theme_full.sh        Title theme — full interleaved speaker output
-nwn-aol-theme_melody.sh      Title theme — melody only
-nwn-aol-theme_bass.sh        Title theme — bass + harmony
-nwn-aol-theme_notes.txt      Human-readable note listing (full)
-nwn-aol-theme_melody_notes.txt  Note listing (melody only)
-nwn-aol-theme_bass_notes.txt    Note listing (bass + harmony)
+nwn-aol-theme_full.sh           Title theme — full interleaved speaker output
+nwn-aol-theme_melody.sh         Title theme — melody only
+nwn-aol-theme_harmony.sh        Title theme — harmony only
+nwn-aol-theme_bass.sh           Title theme — bass only
+nwn-aol-theme_full_notes.txt    Note listing (full)
+nwn-aol-theme_melody_notes.txt  Note listing (melody)
+nwn-aol-theme_harmony_notes.txt Note listing (harmony)
+nwn-aol-theme_bass_notes.txt    Note listing (bass)
 ```

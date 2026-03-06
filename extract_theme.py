@@ -473,15 +473,25 @@ for song_num in [12, 13, 14, 15]:
     write_notes_file(mel, f"{BASE}/song_{song_num}_melody_notes.txt")
     print(f"  melody:  {n_mel:4d} notes, {t_mel:.1f}s -> song_{song_num}_melody.sh")
 
-    # --- Bass+harmony only (voices 0+1, the rhythmic accompaniment) ---
-    raw_bh = simulate_song(song_num, voice_filter={0, 1})
-    bh = merge_events(raw_bh, min_dur_ms=10)
-    n_bh = sum(1 for f, _ in bh if f > 0)
-    t_bh = sum(d for _, d in bh) / 1000
-    write_beep_script(bh, f"{BASE}/song_{song_num}_bass.sh",
-                      f"NWN AOL Song {song_num} (bass+harmony)")
-    write_notes_file(bh, f"{BASE}/song_{song_num}_bass_notes.txt")
-    print(f"  bass:    {n_bh:4d} notes, {t_bh:.1f}s -> song_{song_num}_bass.sh")
+    # --- Harmony only (voice 1) ---
+    raw_har = simulate_song(song_num, voice_filter={1})
+    har = merge_events(raw_har, min_dur_ms=10)
+    n_har = sum(1 for f, _ in har if f > 0)
+    t_har = sum(d for _, d in har) / 1000
+    write_beep_script(har, f"{BASE}/song_{song_num}_harmony.sh",
+                      f"NWN AOL Song {song_num} (harmony only)")
+    write_notes_file(har, f"{BASE}/song_{song_num}_harmony_notes.txt")
+    print(f"  harmony: {n_har:4d} notes, {t_har:.1f}s -> song_{song_num}_harmony.sh")
+
+    # --- Bass only (voice 0) ---
+    raw_bass = simulate_song(song_num, voice_filter={0})
+    bass = merge_events(raw_bass, min_dur_ms=10)
+    n_bass = sum(1 for f, _ in bass if f > 0)
+    t_bass = sum(d for _, d in bass) / 1000
+    write_beep_script(bass, f"{BASE}/song_{song_num}_bass.sh",
+                      f"NWN AOL Song {song_num} (bass only)")
+    write_notes_file(bass, f"{BASE}/song_{song_num}_bass_notes.txt")
+    print(f"  bass:    {n_bass:4d} notes, {t_bass:.1f}s -> song_{song_num}_bass.sh")
 
     # Print sample of melody
     mel_notes = [(f, d) for f, d in mel if f > 0]
