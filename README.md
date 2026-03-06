@@ -340,12 +340,11 @@ For each song, three scripts are generated:
 
 ## Files
 
-```
-base-install/          Original game files
-  GAME.EXE             EXEPACK-compressed executable
-  GAME.OVR             Overlay file (game logic)
-  *.DAX                Game data files
+The original game binaries (`GAME.EXE`, `GAME.OVR`, `*.DAX`) are
+not included in this repository. The tools and output below were
+produced from them.
 
+```
 unexepack.py           EXEPACK decompression tool
 extract_theme.py       Music engine simulator and beep script generator
 
