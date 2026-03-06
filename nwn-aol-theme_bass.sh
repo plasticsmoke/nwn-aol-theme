@@ -1,5 +1,5 @@
 #!/bin/bash
-# NWN AOL Song 12 (bass+harmony) - PC Speaker Emulation
+# NWN AOL Main Theme (Bass+Harmony) - PC Speaker Emulation
 # Extracted from NWN AOL Offline GAME.EXE
 # Requires: sudo apt install beep; sudo modprobe pcspkr
 
