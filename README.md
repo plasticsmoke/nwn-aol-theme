@@ -319,7 +319,7 @@ sudo modprobe pcspkr
 sudo apt install beep
 
 # Play the title theme (full interleaved speaker output)
-./nwn-aol-theme.sh
+./nwn-aol-theme_full.sh
 
 # Melody only (cleanest for beep)
 ./nwn-aol-theme_melody.sh
@@ -349,7 +349,7 @@ base-install/          Original game files
 unexepack.py           EXEPACK decompression tool
 extract_theme.py       Music engine simulator and beep script generator
 
-nwn-aol-theme.sh             Title theme — full interleaved speaker output
+nwn-aol-theme_full.sh        Title theme — full interleaved speaker output
 nwn-aol-theme_melody.sh      Title theme — melody only
 nwn-aol-theme_bass.sh        Title theme — bass + harmony
 nwn-aol-theme_notes.txt      Human-readable note listing (full)
